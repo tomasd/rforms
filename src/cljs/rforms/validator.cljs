@@ -15,3 +15,5 @@
   (field-errors [this path]
     (get-in this path [])))
 
+(defn valid? [validator value]
+  (empty? (validate validator value)))
