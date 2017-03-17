@@ -161,7 +161,8 @@
                           :checked   (= @value (:value attrs))}))])
 
          "select"
-         (do
+         (let [options (cond-> (:options attrs)
+                         (satisfies? IDeref (:options attrs)) deref)]
            (assert (:options attrs) "options attribute is required for select")
            (into [:select
                   (-> attrs
@@ -169,7 +170,7 @@
                       (merge
                         {:value     @str-value
                          :on-change (handle-str-value field)}))]
-                 (:options attrs)))
+                 options))
 
          (let [{:keys [touch-on-change retain-str-value validate-on-change]
                 :or   {touch-on-change    true
