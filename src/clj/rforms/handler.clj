@@ -2,7 +2,7 @@
   (:require [compojure.core :refer [GET defroutes]]
             [compojure.route :refer [not-found resources]]
             [hiccup.page :refer [include-js include-css html5]]
-            [rforms.middleware :refer [wrap-middleware]]
+            #_[rforms.middleware :refer [wrap-middleware]]
             [config.core :refer [env]]))
 
 (def mount-target
@@ -40,4 +40,5 @@
   (resources "/")
   (not-found "Not Found"))
 
-(def app (wrap-middleware #'routes))
+;(def app (wrap-middleware #'routes))
+(def app #'routes)

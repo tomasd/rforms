@@ -37,7 +37,7 @@
    [:cljsbuild :builds :app :compiler :output-dir]
    [:cljsbuild :builds :app :compiler :output-to]]
 
-  :source-paths ["src/clj" "src/cljc"]
+  :source-paths ["src/cljs"]
   :resource-paths ["resources" "target/cljsbuild"]
 
   :minify-assets
@@ -115,7 +115,7 @@
                                   [binaryage/devtools "0.9.1"]
                                   ]
 
-                   :source-paths ["env/dev/clj"]
+                   :source-paths ["src/clj" "src/cljc" "env/dev/clj"]
                    :plugins [[lein-figwheel "0.5.9"]
                              [lein-doo "0.1.7"]
                              ]
